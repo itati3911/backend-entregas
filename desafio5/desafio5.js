@@ -5,6 +5,12 @@ const Contenedor = require('./contenedor')
 const app = express()
 app.set('views', './views')
 
+//HANDLEBARS
+// app.engine('handlebars', handlebars.engine())
+// app.set('view engine', 'handlebars')
+
+//PUG
+// app.set('view engine', 'pug')
 
 //EJS
 app.set('view engine', 'ejs')
@@ -17,7 +23,10 @@ app.use(express.urlencoded({extended:true}))
 //Instancia Contenedor
 const contenedor = new Contenedor('./productos.txt')
 
-
+//ENDPOINTS
+// Para usar la vista de Handlebars es:   '/listado'
+// Para usar la vista de Pug es:     './pug/listado'
+// Para usar la vista de EJS es:       './ejs/main'
 
 app.get('/productos', async (req, res) => {
     try{
